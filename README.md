@@ -4,9 +4,9 @@
 [![Dependency Status](https://david-dm.org/mondora/asteroid.svg)](https://david-dm.org/mondora/asteroid)
 [![devDependency Status](https://david-dm.org/mondora/asteroid/dev-status.svg)](https://david-dm.org/mondora/asteroid#info=devDependencies)
 
-# asteroid
+# asteroid-wx
 
-A javascript client (node) for a Meteor backend.
+A javascript client (node) for a Meteor backend, customized for wechat mini-app env.
 
 > `2.x.x` is out, find out what changed in the [CHANGELOG](./CHANGELOG.md)
 
@@ -38,12 +38,12 @@ With Asteroid you can:
 
 ## Install
 
-    npm install --save asteroid
+    npm install --save asteroid-wx
 
 ## Usage
 
 ```js
-import {createClass} from "asteroid";
+import {createClass} from "asteroid-wx";
 
 const Asteroid = createClass();
 // Connect to a Meteor backend
