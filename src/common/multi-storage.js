@@ -14,6 +14,14 @@ export function get (key) {
                     resolve(data);
                 }
             });
+        } else if (typeof wx !== "undefined" && wx.getStorage) {
+            wx.getStorage({
+                key,
+                success: res => {
+                    resolve(res.data)
+                },
+                fail: reject
+            });
         } else {
             resolve(genericStorage[key]);
         }
@@ -38,6 +46,13 @@ export function set (key, value) {
                     resolve();
                 }
             });
+        } else if (typeof wx !== "undefined" && wx.setStorage) {
+            wx.setStorage({
+                key,
+                data: value,
+                success: resolve,
+                fail: reject
+            });
         } else {
             genericStorage[key] = value;
             resolve();
@@ -59,6 +74,12 @@ export function del (key) {
                 } else {
                     resolve();
                 }
+            });
+        } else if (typeof wx !== "undefined" && wx.removeStorage) {
+            wx.removeStorage({
+                key,
+                success: resolve,
+                fail: reject
             });
         } else {
             delete genericStorage[key];
